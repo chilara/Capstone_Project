@@ -5,8 +5,10 @@ import Navbar from "../Components/Navbar";
 import Card from "../Components/Card";
 
 const Home = () => {
-  const [loading, setLoading] = useState("");
+  const [loading, setLoading] = useState(false);
   const [data, setData] = useState(null);
+  const [deleting, setDeleting] = useState(false);
+
   useEffect(() => {
     const getAllNews = async () => {
       try {
@@ -23,15 +25,35 @@ const Home = () => {
     getAllNews();
   }, []);
 
+  const removeUser = async (id) => {
+    try {
+      setDeleting(true);
+      await axios.delete(`${base_url}/news/${id}`);
+      const newData = data.filter((item) => item.id != id);
+      console.log("Item successfully deleted.");
+      setData(newData);
+    } catch (error) {
+      alert(error);
+    } finally {
+      setDeleting(false);
+    }
+  };
+
   return (
     <div>
       <Navbar />
       {loading ? (
-        <p>Loading..</p>
+        <p className="loadingStatus">Loading...</p>
       ) : (
         <section className="articleContainer">
           {data?.map((items) => (
-            <Card avatar={items.avatar} title={items.title} />
+            <Card
+              avatar={items.avatar}
+              title={items.title}
+              id={items.id}
+              removeUser={removeUser}
+              deleting={deleting}
+            />
           ))}
         </section>
       )}
