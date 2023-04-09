@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { base_url } from "../Utils/Constant";
+import { Link } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import Card from "../Components/Card";
 
 const Home = () => {
-  const [loading, setLoading] = useState("");
+  const [loading, setLoading] = useState(false);
   const [data, setData] = useState(null);
+
   useEffect(() => {
     const getAllNews = async () => {
       try {
@@ -23,15 +25,43 @@ const Home = () => {
     getAllNews();
   }, []);
 
+  const removeUser = async (id) => {
+    try {
+      await axios.delete(`${base_url}/news/${id}`);
+      const newData = data.filter((item) => item.id != id);
+      console.log("Item successfully deleted.");
+      setData(newData);
+    } catch (error) {
+      alert(error);
+    }
+  };
+
+  const buttonTag = (
+    <Link
+      to="/CreateNews"
+      style={{
+        textDecoration: "none",
+      }}
+      target="_blank"
+    >
+      <button className="nav-btn">Create News</button>
+    </Link>
+  );
+
   return (
     <div>
-      <Navbar />
+      <Navbar button={buttonTag} />
       {loading ? (
-        <p>Loading..</p>
+        <p className="loadingStatus">Loading...</p>
       ) : (
         <section className="articleContainer">
           {data?.map((items) => (
-            <Card avatar={items.avatar} title={items.title} />
+            <Card
+              avatar={items.avatar}
+              title={items.title}
+              id={items.id}
+              removeUser={removeUser}
+            />
           ))}
         </section>
       )}

@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "../Pages/Home";
-import AddComment from "../Components/AddComment";
+import AddComment from "../Components/addComment";
 import AddImage from "../Components/AddImage";
 import CreateNews from "../Components/CreateNews";
 import NewsDetails from "../Components/NewsDetails";
