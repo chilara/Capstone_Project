@@ -65,7 +65,6 @@ const NewsDetails = () => {
           />
         </div>
       )}
-      ;
     </div>
   );
 };
