@@ -4,16 +4,18 @@ import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { base_url } from "../Utils/Constant";
-
 import NewsDetailCard from "./NewsDetailCard";
 
 const NewsDetails = () => {
+  // extracting the param from the url
   const location = useLocation();
   const queryParameters = new URLSearchParams(location.search);
   const id = queryParameters.get("id");
+
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState("");
 
+  // getting single news detail
   useEffect(() => {
     const getSingleNews = async (id) => {
       try {
@@ -47,13 +49,21 @@ const NewsDetails = () => {
       {loading ? (
         <p className="loadingStatus">Loading...</p>
       ) : (
-        <NewsDetailCard
-          avatar={data.avatar}
-          title={data.title}
-          url={data.url}
-          author={data.author}
-          comments={data.comment}
-        />
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginTop: "3%",
+          }}
+        >
+          <NewsDetailCard
+            avatar={data.avatar}
+            title={data.title}
+            url={data.url}
+            author={`Published by ${data.author}`}
+            comments={data.comment}
+          />
+        </div>
       )}
       ;
     </div>

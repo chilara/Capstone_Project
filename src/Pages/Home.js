@@ -9,6 +9,7 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState(null);
 
+  // getting all news
   useEffect(() => {
     const getAllNews = async () => {
       try {
@@ -25,6 +26,7 @@ const Home = () => {
     getAllNews();
   }, []);
 
+  // deleting a single news detail
   const removeUser = async (id) => {
     try {
       await axios.delete(`${base_url}/news/${id}`);
