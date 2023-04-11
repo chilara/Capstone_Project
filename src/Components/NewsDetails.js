@@ -13,15 +13,19 @@ const NewsDetails = () => {
   const id = queryParameters.get("id");
 
   const [loading, setLoading] = useState(false);
-  const [data, setData] = useState("");
+  const [commentData, setCommentData] = useState([]);
+  const [data, setData] = useState(null);
 
   // getting single news detail
   useEffect(() => {
     const getSingleNews = async (id) => {
       try {
         setLoading(true);
-        const response = await axios(`${base_url}/news/${id}`);
-        setData(response.data);
+        const response = axios(`${base_url}/news/${id}`);
+        const responseComment = axios(`${base_url}/news/${id}/comments`);
+        const responseArray = await Promise.all([response, responseComment]);
+        setData(responseArray[0].data);
+        setCommentData(responseArray[1].data);
       } catch (error) {
         alert(error);
       } finally {
@@ -57,11 +61,11 @@ const NewsDetails = () => {
           }}
         >
           <NewsDetailCard
-            avatar={data.avatar}
-            title={data.title}
-            url={data.url}
-            author={`Published by ${data.author}`}
-            comments={data.comment}
+            avatar={data?.avatar}
+            title={data?.title}
+            url={data?.url}
+            author={`Published by ${data?.author}`}
+            comments={commentData}
           />
         </div>
       )}

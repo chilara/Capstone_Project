@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { MdDeleteForever } from "react-icons/md";
-import { GrUpdate } from "react-icons/gr";
+import { BiEdit } from "react-icons/bi";
 import { MdDetails } from "react-icons/md";
 import { BsImages } from "react-icons/bs";
 
@@ -31,7 +31,7 @@ const Card = ({ avatar, title, id, removeUser }) => {
           target="_blank"
           className="parentBtn"
         >
-          <GrUpdate />
+          <BiEdit />
         </Link>
         <Link
           to="/ViewAllImages"

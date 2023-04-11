@@ -9,7 +9,7 @@ const NewsDetailCard = ({ avatar, title, url, author, comments }) => {
       <div className="img-btn">
         <img src={avatar} id="img" alt="" />
         <div>
-          <Link to="/addComments" target="_blank" className="BtnC">
+          <Link to="/commentAdd" target="_blank" className="BtnC">
             <BiCommentAdd />
           </Link>
           <Link to="/AddImage" target="_blank" className="BtnC">
@@ -25,11 +25,11 @@ const NewsDetailCard = ({ avatar, title, url, author, comments }) => {
       <p id="author">{author}</p>
       <br />
       <div id="divider">
-        {/* <ul id="comments">
-            {comments.map((item) => (
-              <li>{item.comment}</li>
-            ))}
-          </ul> */}
+        <ul id="comments">
+          {comments.map((item) => (
+            <li style={{ marginBottom: 10 }}>{item.comment}</li>
+          ))}
+        </ul>
       </div>
     </div>
   );
