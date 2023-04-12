@@ -2,17 +2,19 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { BiCommentAdd } from "react-icons/bi";
 import { BiImageAdd } from "react-icons/bi";
+import { BiCommentEdit } from "react-icons/bi";
+import { MdDeleteForever } from "react-icons/md";
 
-const NewsDetailCard = ({ avatar, title, url, author, comments }) => {
+const NewsDetailCard = ({ avatar, title, url, author, comments, id }) => {
   return (
     <div className="detailCard">
       <div className="img-btn">
         <img src={avatar} id="img" alt="" />
         <div>
-          <Link to="/commentAdd" target="_blank" className="BtnC">
+          <Link to={`/Comment?id=${id}`} target="_blank" className="BtnC">
             <BiCommentAdd />
           </Link>
-          <Link to="/AddImage" target="_blank" className="BtnC">
+          <Link to={`/AddImage?id=${id}`} target="_blank" className="BtnC">
             <BiImageAdd />
           </Link>
         </div>
@@ -24,10 +26,25 @@ const NewsDetailCard = ({ avatar, title, url, author, comments }) => {
       <br />
       <p id="author">{author}</p>
       <br />
-      <div id="divider">
+      <div>
         <ul id="comments">
           {comments.map((item) => (
-            <li style={{ marginBottom: 10 }}>{item.comment}</li>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+              }}
+            >
+              <li style={{ marginBottom: 10 }}>{item.comment}</li>
+              <div style={{ display: "flex" }}>
+                <Link className="BtnC">
+                  <BiCommentEdit />
+                </Link>
+                <Link className="parentBtnD">
+                  <MdDeleteForever />
+                </Link>
+              </div>
+            </div>
           ))}
         </ul>
       </div>

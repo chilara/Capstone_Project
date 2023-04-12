@@ -35,7 +35,7 @@ const UpdateNews = () => {
         <input type="text" id="avatarLink" required />
         <br />
         <button type="submit" id="createBtn">
-          Create
+          Update
         </button>
       </form>
     </div>

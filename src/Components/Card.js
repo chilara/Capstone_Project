@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { BiDetail } from "react-icons/bi";
 import { MdDeleteForever } from "react-icons/md";
 import { BiEdit } from "react-icons/bi";
-import { MdDetails } from "react-icons/md";
 import { BsImages } from "react-icons/bs";
 
 const Card = ({ avatar, title, id, removeUser }) => {
@@ -21,7 +21,7 @@ const Card = ({ avatar, title, id, removeUser }) => {
           target="_blank"
           className="parentBtn"
         >
-          <MdDetails />
+          <BiDetail />
         </Link>
         <Link
           to="/UpdateNews"
@@ -47,14 +47,11 @@ const Card = ({ avatar, title, id, removeUser }) => {
           style={{
             textDecoration: "none",
           }}
+          className="parentBtnD"
+          onClick={() => removeUser(id)}
+          type="submit"
         >
-          <a
-            className="parentBtnD"
-            onClick={() => removeUser(id)}
-            type="submit"
-          >
-            <MdDeleteForever />
-          </a>
+          <MdDeleteForever />
         </Link>
       </div>
     </div>

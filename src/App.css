@@ -133,7 +133,7 @@ h4 {
   text-decoration: none;
   padding: 5px;
   background-color: transparent;
-  color: #000000;
+  color: #0644cc;
   height: 25px;
   width: 25px;
   font-size: medium;
@@ -146,8 +146,8 @@ h4 {
 .parentBtn:hover {
   text-decoration: none;
   padding: 5px;
-  box-shadow: 2px -3px 30px -5px rgb(18, 3, 6);
-  color: #000000;
+  box-shadow: 2px -3px 30px -5px #0644cc;
+  color: #0644cc;
   border-radius: 5px;
   height: 25px;
   width: 25px;
@@ -191,7 +191,7 @@ form input:focus {
 }
 #createBtn {
   padding: 10px;
-  width: 15%;
+  width: 90px;
   border-radius: 5px;
   border: none;
   background-color: #0644cc;
@@ -202,7 +202,7 @@ form input:focus {
 }
 #createBtn:hover {
   padding: 10px;
-  width: 15%;
+  width: 90px;
   cursor: pointer;
   background-color: white;
   color: #0644cc;
@@ -276,7 +276,7 @@ form input:focus {
   text-decoration: none;
   padding: 5px;
   background-color: transparent;
-  color: #000000;
+  color: #0644cc;
   height: 25px;
   width: 25px;
   font-size: medium;
@@ -289,8 +289,8 @@ form input:focus {
 .BtnC:hover {
   text-decoration: none;
   padding: 5px;
-  box-shadow: 2px -3px 30px -5px rgb(18, 3, 6);
-  color: #000000;
+  box-shadow: 2px -3px 30px -5px #0644cc;
+  color: #0644cc;
   border-radius: 5px;
   height: 25px;
   width: 25px;

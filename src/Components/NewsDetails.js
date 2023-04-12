@@ -13,10 +13,10 @@ const NewsDetails = () => {
   const id = queryParameters.get("id");
 
   const [loading, setLoading] = useState(false);
-  const [commentData, setCommentData] = useState([]);
   const [data, setData] = useState(null);
+  const [commentData, setCommentData] = useState([]);
 
-  // getting single news detail
+  // getting single news detail and comments
   useEffect(() => {
     const getSingleNews = async (id) => {
       try {
@@ -66,6 +66,7 @@ const NewsDetails = () => {
             url={data?.url}
             author={`Published by ${data?.author}`}
             comments={commentData}
+            id={id}
           />
         </div>
       )}
