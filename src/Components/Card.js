@@ -1,4 +1,5 @@
 import React from "react";
+import { Tooltip } from "react-tooltip";
 import { Link } from "react-router-dom";
 import { BiDetail } from "react-icons/bi";
 import { MdDeleteForever } from "react-icons/md";
@@ -20,9 +21,13 @@ const Card = ({ avatar, title, id, removeUser }) => {
           }}
           target="_blank"
           className="parentBtn"
+          data-tooltip-id="my-tooltip"
+          data-tooltip-content="News Detail"
+          data-tooltip-place="bottom"
         >
           <BiDetail />
         </Link>
+        <Tooltip id="my-tooltip" />
         <Link
           to="/UpdateNews"
           style={{
@@ -30,9 +35,13 @@ const Card = ({ avatar, title, id, removeUser }) => {
           }}
           target="_blank"
           className="parentBtn"
+          data-tooltip-id="my-tooltip"
+          data-tooltip-content="Update"
+          data-tooltip-place="bottom"
         >
           <BiEdit />
         </Link>
+        <Tooltip id="my-tooltip" />
         <Link
           to="/ViewAllImages"
           style={{
@@ -40,9 +49,13 @@ const Card = ({ avatar, title, id, removeUser }) => {
           }}
           target="_blank"
           className="parentBtn"
+          data-tooltip-id="my-tooltip"
+          data-tooltip-content="Images"
+          data-tooltip-place="bottom"
         >
           <BsImages />
         </Link>
+        <Tooltip id="my-tooltip" />
         <Link
           style={{
             textDecoration: "none",
@@ -50,9 +63,13 @@ const Card = ({ avatar, title, id, removeUser }) => {
           className="parentBtnD"
           onClick={() => removeUser(id)}
           type="submit"
+          data-tooltip-id="my-tooltip"
+          data-tooltip-content="Delete"
+          data-tooltip-place="bottom"
         >
           <MdDeleteForever />
         </Link>
+        <Tooltip id="my-tooltip" />
       </div>
     </div>
   );

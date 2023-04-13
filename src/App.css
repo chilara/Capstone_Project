@@ -301,3 +301,10 @@ form input:focus {
   justify-content: center;
   align-items: center;
 }
+
+#my-tooltip {
+  border-radius: 4px;
+  background-color: #0644cc;
+  width: fit-content;
+  font-size: xx-small;
+}
