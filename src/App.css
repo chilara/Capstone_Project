@@ -63,6 +63,7 @@ h4 {
 }
 .card {
   background-color: #f8f9fd;
+  border: 1px solid white;
   padding: 10px 10px 40px 10px;
   margin-bottom: 10%;
   height: 250px;
@@ -74,6 +75,7 @@ h4 {
 
 .imgBtn {
   width: 150px;
+  height: 150px;
 }
 
 .btnContainer {

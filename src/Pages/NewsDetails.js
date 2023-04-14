@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "./Navbar";
+import Navbar from "../Components/Navbar";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { base_url } from "../Utils/Constant";
-import NewsDetailCard from "./NewsDetailCard";
+import NewsDetailCard from "../Components/NewsDetailCard";
 
 const NewsDetails = () => {
   // extracting the param from the url
@@ -41,7 +41,6 @@ const NewsDetails = () => {
       style={{
         textDecoration: "none",
       }}
-      target="_blank"
     >
       <button className="nav-btn">Home</button>
     </Link>

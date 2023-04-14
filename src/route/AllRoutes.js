@@ -1,12 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "../Pages/Home";
-import Comment from "../Components/Comment";
-import AddImage from "../Components/AddImage";
-import CreateNews from "../Components/CreateNews";
-import NewsDetails from "../Components/NewsDetails";
-import UpdateNews from "../Components/UpdateNews";
-import ViewAllImages from "../Components/ViewAllImages";
+import Comment from "../Pages/Comment";
+import AddImage from "../Pages/AddImage";
+import CreateNews from "../Pages/CreateNews";
+import NewsDetails from "../Pages/NewsDetails";
+import UpdateNews from "../Pages/UpdateNews";
+import ViewAllImages from "../Pages/ViewAllImages";
 
 const AllRoutes = () => {
   return (

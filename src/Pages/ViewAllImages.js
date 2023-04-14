@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Navbar from "./Navbar";
+import Navbar from "../Components/Navbar";
 
 const ViewAllImages = () => {
   const buttonTag = (
@@ -9,7 +9,6 @@ const ViewAllImages = () => {
       style={{
         textDecoration: "none",
       }}
-      target="_blank"
     >
       <button className="nav-btn">Home</button>
     </Link>

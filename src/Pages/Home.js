@@ -44,7 +44,6 @@ const Home = () => {
       style={{
         textDecoration: "none",
       }}
-      target="_blank"
     >
       <button className="nav-btn">Create News</button>
     </Link>

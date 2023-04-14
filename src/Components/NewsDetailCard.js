@@ -14,7 +14,6 @@ const NewsDetailCard = ({ avatar, title, url, author, comments, id }) => {
         <div>
           <Link
             to={`/Comment?id=${id}`}
-            target="_blank"
             className="BtnC"
             data-tooltip-id="my-tooltip"
             data-tooltip-content="Add Comment"
@@ -25,7 +24,6 @@ const NewsDetailCard = ({ avatar, title, url, author, comments, id }) => {
           <Tooltip id="my-tooltip" />
           <Link
             to={`/AddImage?id=${id}`}
-            target="_blank"
             className="BtnC"
             data-tooltip-id="my-tooltip"
             data-tooltip-content="Add Image"

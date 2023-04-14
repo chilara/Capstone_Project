@@ -10,7 +10,7 @@ const Card = ({ avatar, title, id, removeUser }) => {
   return (
     <div className="card">
       <div className="imgBtn">
-        <img src={avatar} style={{ width: "100%" }} />
+        <img src={avatar} style={{ width: "100%", height: "100%" }} />
       </div>
       <h4>{title}</h4>
       <div className="btnContainer">
@@ -19,21 +19,19 @@ const Card = ({ avatar, title, id, removeUser }) => {
           style={{
             textDecoration: "none",
           }}
-          target="_blank"
           className="parentBtn"
           data-tooltip-id="my-tooltip"
-          data-tooltip-content="News Detail"
+          data-tooltip-content="Details"
           data-tooltip-place="bottom"
         >
           <BiDetail />
         </Link>
         <Tooltip id="my-tooltip" />
         <Link
-          to="/UpdateNews"
+          to={`/UpdateNews?id=${id}`}
           style={{
             textDecoration: "none",
           }}
-          target="_blank"
           className="parentBtn"
           data-tooltip-id="my-tooltip"
           data-tooltip-content="Update"
@@ -43,11 +41,10 @@ const Card = ({ avatar, title, id, removeUser }) => {
         </Link>
         <Tooltip id="my-tooltip" />
         <Link
-          to="/ViewAllImages"
+          to={`/ViewAllImages?id=${id}`}
           style={{
             textDecoration: "none",
           }}
-          target="_blank"
           className="parentBtn"
           data-tooltip-id="my-tooltip"
           data-tooltip-content="Images"

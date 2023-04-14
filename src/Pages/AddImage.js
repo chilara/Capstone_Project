@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../Components/Navbar";
 import { base_url } from "../Utils/Constant";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const AddImage = () => {
   // extracting the param from the url
@@ -10,28 +10,32 @@ const AddImage = () => {
   const queryParameters = new URLSearchParams(location.search);
   const id = queryParameters.get("id");
 
+  const navigate = useNavigate();
   const [inputValue, setInputValue] = useState("");
 
   const changeHandler = (e) => {
     setInputValue(e.target.value);
   };
 
-  const add = (values) => async () => {
+  const add = async (e) => {
+    e.preventDefault();
     let body = {
-      method: "post",
+      method: "POST",
       url: `${base_url}/news/${id}/images`,
       headers: {
         "Content-Type": "application/json",
       },
-      data: values,
+      data: {
+        image: inputValue,
+        newsId: id,
+      },
     };
 
     try {
-      const response = await axios(body);
-      setInputValue(response.data);
-      console.log(JSON.stringify(response.data));
+      await axios(body);
+      navigate(`/NewsDetails?id=${id}`);
     } catch (error) {
-      alert(error);
+      alert(error || error.message);
     } finally {
       setInputValue("");
     }
@@ -52,7 +56,7 @@ const AddImage = () => {
           accept="image/png, image/gif, image/jpeg"
         />
         <br />
-        <button type="submit" id="createBtn" onClick={add()}>
+        <button type="submit" id="createBtn" onClick={add}>
           Add
         </button>
       </form>

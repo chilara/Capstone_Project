@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Navbar from "./Navbar";
+import Navbar from "../Components/Navbar";
 import { base_url } from "../Utils/Constant";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
@@ -26,19 +26,23 @@ const Comment = () => {
     setComment(e.target.value);
   };
 
-  const add = (values) => async () => {
+  const add = async (e) => {
     let body = {
       method: "POST",
       url: `${base_url}/news/${id}/comments`,
       headers: {
         "Content-Type": "application/json",
       },
-      data: values,
+      data: {
+        newsId: id,
+        avatar: avatar,
+        comment,
+      },
     };
 
     try {
-      const response = await axios(body);
-      console.log(JSON.stringify(response.data));
+      e.preventDefault();
+      await axios(body);
     } catch (error) {
       alert(error);
     }
@@ -80,7 +84,7 @@ const Comment = () => {
           onChange={changeCommentHandler}
         />
         <br />
-        <button type="submit" id="createBtn" onClick={add()}>
+        <button type="submit" id="createBtn" onClick={add}>
           Add
         </button>
       </form>
