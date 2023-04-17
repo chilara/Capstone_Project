@@ -7,12 +7,16 @@ import CreateNews from "../Pages/CreateNews";
 import NewsDetails from "../Pages/NewsDetails";
 import UpdateNews from "../Pages/UpdateNews";
 import ViewAllImages from "../Pages/ViewAllImages";
+import Login from "../Pages/Login";
+import Register from "../Pages/Register";
 
 const AllRoutes = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Register />} />
+        <Route path="/Login" element={<Login />} />
+        <Route path="/Home" element={<Home />} />
         <Route path="/Comment" element={<Comment />} />
         <Route path="/AddImage" element={<AddImage />} />
         <Route path="/CreateNews" element={<CreateNews />} />

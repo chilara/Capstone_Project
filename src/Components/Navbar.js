@@ -5,7 +5,16 @@ const Navbar = ({ button }) => {
     <div className="navbar">
       <header>
         <nav>{button}</nav>
-        <h1>Docre Blog</h1>
+        <h1>
+          Welcome to Docre Blog
+          <br />
+          <span
+            style={{ fontSize: "20px", marginBottom: "10px", color: "grey" }}
+          >
+            News, Events, Entertainment, Lifestyle, Fashion, Beauty,
+            Inspiration..
+          </span>
+        </h1>
       </header>
     </div>
   );
