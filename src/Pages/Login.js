@@ -3,9 +3,11 @@ import { Formik } from "formik";
 import * as yup from "yup";
 import Sidebar from "../Components/Sidebar";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
   const initialValues = {
     email: "",
     password: "",
@@ -39,6 +41,7 @@ const Login = () => {
             const response = await axios(config);
             console.log(JSON.stringify(response.data));
             localStorage.setItem("token", response.data.token);
+            navigate("/");
           } catch (error) {
             console.log(error);
           }

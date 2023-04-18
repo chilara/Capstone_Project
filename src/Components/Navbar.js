@@ -1,10 +1,20 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = ({ button }) => {
+  const navigate = useNavigate();
   return (
     <div className="navbar">
       <header>
         <nav>{button}</nav>
+        <button
+          onClick={() => {
+            localStorage.clear();
+            navigate("/Login");
+          }}
+        >
+          Logout
+        </button>
         <h1>
           Welcome to Docre Blog
           <br />

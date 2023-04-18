@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import Navbar from "../Components/Navbar";
 import { base_url } from "../Utils/Constant";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Comment = () => {
   // extracting the param from the url
   const location = useLocation();
   const queryParameters = new URLSearchParams(location.search);
   const id = queryParameters.get("id");
+  const navigate = useNavigate();
 
   const [name, setName] = useState("");
   const [avatar, setAvatar] = useState("");
@@ -43,6 +44,7 @@ const Comment = () => {
     try {
       e.preventDefault();
       await axios(body);
+      navigate(`/NewsDetails?id=${id}`);
     } catch (error) {
       alert(error);
     }

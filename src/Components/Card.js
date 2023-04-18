@@ -22,7 +22,7 @@ const Card = ({ avatar, title, id, removeUser }) => {
           className="parentBtn"
           data-tooltip-id="my-tooltip"
           data-tooltip-content="Details"
-          data-tooltip-place="top"
+          data-tooltip-place="bottom"
         >
           <BiDetail />
         </Link>
@@ -35,7 +35,7 @@ const Card = ({ avatar, title, id, removeUser }) => {
           className="parentBtn"
           data-tooltip-id="my-tooltip"
           data-tooltip-content="Update"
-          data-tooltip-place="top"
+          data-tooltip-place="bottom"
         >
           <BiEdit />
         </Link>
@@ -48,7 +48,7 @@ const Card = ({ avatar, title, id, removeUser }) => {
           className="parentBtn"
           data-tooltip-id="my-tooltip"
           data-tooltip-content="Images"
-          data-tooltip-place="top"
+          data-tooltip-place="bottom"
         >
           <BsImages />
         </Link>
@@ -62,7 +62,7 @@ const Card = ({ avatar, title, id, removeUser }) => {
           type="submit"
           data-tooltip-id="my-tooltip"
           data-tooltip-content="Delete"
-          data-tooltip-place="top"
+          data-tooltip-place="bottom"
         >
           <MdDeleteForever />
         </Link>

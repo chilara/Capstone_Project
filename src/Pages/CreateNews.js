@@ -94,7 +94,7 @@ const CreateNews = () => {
                 </small>
               </div>
               <div>
-                <label for="">News Title</label>
+                <label for="">Title</label>
                 <input
                   id="newsTitle"
                   type="text"
@@ -114,7 +114,7 @@ const CreateNews = () => {
                 </small>
               </div>
               <div>
-                <label for="">News URL</label>
+                <label for="">Content URL</label>
                 <input
                   id="newsUrl"
                   type="text"

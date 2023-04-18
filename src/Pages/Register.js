@@ -4,8 +4,10 @@ import React from "react";
 import Sidebar from "../Components/Sidebar";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
+  const navigate = useNavigate();
   const initialValues = {
     first_name: "",
     last_name: "",
@@ -39,10 +41,11 @@ const Register = () => {
 
           try {
             const response = await axios(config);
-            console.log(JSON.stringify(response.data));
+            console.log("labe..", JSON.stringify(response.data));
             localStorage.setItem("token", response.data.token);
+            navigate("/");
           } catch (error) {
-            console.log(error);
+            console.log("jsjn>>>", error);
           }
         }}
       >

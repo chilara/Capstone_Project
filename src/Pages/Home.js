@@ -45,7 +45,7 @@ const Home = () => {
         textDecoration: "none",
       }}
     >
-      <button className="nav-btn">Create News</button>
+      <button className="nav-btn">Create Content</button>
     </Link>
   );
 
