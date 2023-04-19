@@ -24,7 +24,7 @@ const CreateNews = () => {
 
   const buttonTag = (
     <Link
-      to="/"
+      to="/Home"
       style={{
         textDecoration: "none",
       }}
@@ -53,7 +53,7 @@ const CreateNews = () => {
             try {
               const response = await axios(body);
               console.log(JSON.stringify(response.data));
-              navigate("/");
+              navigate("/Home");
             } catch (error) {
               alert(error);
             }

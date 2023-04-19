@@ -39,14 +39,16 @@ const Home = () => {
   };
 
   const buttonTag = (
-    <Link
-      to="/CreateNews"
-      style={{
-        textDecoration: "none",
-      }}
-    >
-      <button className="nav-btn">Create Content</button>
-    </Link>
+    <div>
+      <Link
+        to="/CreateNews"
+        style={{
+          textDecoration: "none",
+        }}
+      >
+        <button className="nav-btn">Create Content</button>
+      </Link>
+    </div>
   );
 
   return (

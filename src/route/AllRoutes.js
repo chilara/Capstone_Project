@@ -21,7 +21,6 @@ const AllRoutes = () => {
       const token = localStorage.getItem("token");
       if (!token) throw new Error("invalid");
       jwtDecode(token);
-      navigate("/Home");
       authenticated = true;
     } catch (error) {
       authenticated = false;
@@ -32,7 +31,7 @@ const AllRoutes = () => {
       <Route
         path="/Home"
         element={
-          <AuthenticatedRoute>
+          <AuthenticatedRoute authenticated={authenticated}>
             <Home />
           </AuthenticatedRoute>
         }
@@ -40,7 +39,7 @@ const AllRoutes = () => {
       <Route
         path="/Comment"
         element={
-          <AuthenticatedRoute>
+          <AuthenticatedRoute authenticated={authenticated}>
             <Comment />
           </AuthenticatedRoute>
         }
@@ -48,7 +47,7 @@ const AllRoutes = () => {
       <Route
         path="/AddImage"
         element={
-          <AuthenticatedRoute>
+          <AuthenticatedRoute authenticated={authenticated}>
             <AddImage />
           </AuthenticatedRoute>
         }
@@ -56,7 +55,7 @@ const AllRoutes = () => {
       <Route
         path="/CreateNews"
         element={
-          <AuthenticatedRoute>
+          <AuthenticatedRoute authenticated={authenticated}>
             <CreateNews />
           </AuthenticatedRoute>
         }
@@ -64,7 +63,7 @@ const AllRoutes = () => {
       <Route
         path="/ViewAllImages"
         element={
-          <AuthenticatedRoute>
+          <AuthenticatedRoute authenticated={authenticated}>
             <ViewAllImages />
           </AuthenticatedRoute>
         }
@@ -72,7 +71,7 @@ const AllRoutes = () => {
       <Route
         path="/NewsDetails"
         element={
-          <AuthenticatedRoute>
+          <AuthenticatedRoute authenticated={authenticated}>
             <NewsDetails />
           </AuthenticatedRoute>
         }
@@ -80,7 +79,7 @@ const AllRoutes = () => {
       <Route
         path="/UpdateNews"
         element={
-          <AuthenticatedRoute>
+          <AuthenticatedRoute authenticated={authenticated}>
             <UpdateNews />
           </AuthenticatedRoute>
         }

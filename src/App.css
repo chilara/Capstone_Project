@@ -41,6 +41,18 @@ header h1 {
   padding: 9px;
   cursor: pointer;
 }
+
+.nav-btn-log {
+  margin-left: 77%;
+  margin-top: 2%;
+  background-color: #f0efef;
+  border: none;
+  color: #0644cc;
+  font-size: medium;
+  border-radius: 5px;
+  padding: 9px;
+  cursor: pointer;
+}
 .articleContainer {
   display: flex;
   gap: 15px;

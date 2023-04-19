@@ -1,20 +1,22 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 const Navbar = ({ button }) => {
-  const navigate = useNavigate();
   return (
     <div className="navbar">
       <header>
         <nav>{button}</nav>
+        {/* 
         <button
           onClick={() => {
             localStorage.clear();
-            navigate("/Login");
+            Navigate("/Login");
           }}
+          className="nav-btn-log"
         >
           Logout
-        </button>
+        </button> */}
+
         <h1>
           Welcome to Docre Blog
           <br />

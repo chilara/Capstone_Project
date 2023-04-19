@@ -8,7 +8,7 @@ import { Link, Navigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  //   const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const initialValues = {
     email: "",
@@ -25,6 +25,7 @@ const Login = () => {
     <div className="todoContainer">
       <Sidebar />
       {/* <div className="todoBody"> */}
+
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -40,7 +41,7 @@ const Login = () => {
           };
 
           try {
-            // setLoading(true);
+            setLoading(true);
             const response = await axios(config);
             console.log(JSON.stringify(response.data));
             localStorage.setItem("token", response.data.token);
@@ -48,7 +49,7 @@ const Login = () => {
           } catch (error) {
             console.log(error);
           } finally {
-            // setLoading(false);
+            setLoading(false);
           }
         }}
       >
@@ -91,6 +92,13 @@ const Login = () => {
               >
                 We are glad to have you back!
               </h5>
+              {loading ? (
+                <p className="loadingStatus" style={{ color: "black" }}>
+                  signing in..
+                </p>
+              ) : (
+                ""
+              )}
             </div>
             <div>
               <label style={{ color: "#8E7F7F" }}>Email</label>
