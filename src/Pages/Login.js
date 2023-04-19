@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { Formik } from "formik";
 import * as yup from "yup";
 import Sidebar from "../Components/Sidebar";
@@ -7,6 +8,7 @@ import { Link, Navigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  //   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const initialValues = {
     email: "",
@@ -38,12 +40,15 @@ const Login = () => {
           };
 
           try {
+            // setLoading(true);
             const response = await axios(config);
             console.log(JSON.stringify(response.data));
             localStorage.setItem("token", response.data.token);
-            navigate("/");
+            navigate("/Home");
           } catch (error) {
             console.log(error);
+          } finally {
+            // setLoading(false);
           }
         }}
       >

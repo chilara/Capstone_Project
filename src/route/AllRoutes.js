@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import Home from "../Pages/Home";
 import Comment from "../Pages/Comment";
 import AddImage from "../Pages/AddImage";
@@ -10,42 +10,37 @@ import ViewAllImages from "../Pages/ViewAllImages";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import jwtDecode from "jwt-decode";
+import { AuthenticatedRoute } from "./protectRoute";
+
+let authenticated;
 
 const AllRoutes = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  let token;
-
+  const navigate = useNavigate();
   useEffect(() => {
     try {
-      token = localStorage.getItem("token");
+      const token = localStorage.getItem("token");
+      if (!token) throw new Error("invalid");
       jwtDecode(token);
-      setIsAuthenticated(true);
+      navigate("/Home");
+      authenticated = true;
     } catch (error) {
-      setIsAuthenticated(false);
+      authenticated = false;
     }
-  }, []);
-
+  }, [navigate]);
   return (
-    <Router>
-      <Routes>
-        {isAuthenticated ? (
-          <>
-            <Route path="/Home" element={<Home />} />
-            <Route path="/Comment" element={<Comment />} />
-            <Route path="/AddImage" element={<AddImage />} />
-            <Route path="/CreateNews" element={<CreateNews />} />
-            <Route path="/ViewAllImages" element={<ViewAllImages />} />
-            <Route path="/NewsDetails" element={<NewsDetails />} />
-            <Route path="/UpdateNews" element={<UpdateNews />} />
-          </>
-        ) : (
-          <>
-            <Route path="/" element={<Register />} />
-            <Route path="/Login" element={<Login />} />
-          </>
-        )}
-      </Routes>
-    </Router>
+    <Routes>
+      <Route element={<AuthenticatedRoute authenticated={authenticated} />}>
+        <Route path="/Home" element={<Home />} />
+        <Route path="/Comment" element={<Comment />} />
+        <Route path="/AddImage" element={<AddImage />} />
+        <Route path="/CreateNews" element={<CreateNews />} />
+        <Route path="/ViewAllImages" element={<ViewAllImages />} />
+        <Route path="/NewsDetails" element={<NewsDetails />} />
+        <Route path="/UpdateNews" element={<UpdateNews />} />
+      </Route>
+      <Route path="/" element={<Register />} />
+      <Route path="/Login" element={<Login />} />
+    </Routes>
   );
 };
 
