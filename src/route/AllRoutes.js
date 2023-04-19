@@ -29,15 +29,63 @@ const AllRoutes = () => {
   }, [navigate]);
   return (
     <Routes>
-      <Route element={<AuthenticatedRoute authenticated={authenticated} />}>
-        <Route path="/Home" element={<Home />} />
-        <Route path="/Comment" element={<Comment />} />
-        <Route path="/AddImage" element={<AddImage />} />
-        <Route path="/CreateNews" element={<CreateNews />} />
-        <Route path="/ViewAllImages" element={<ViewAllImages />} />
-        <Route path="/NewsDetails" element={<NewsDetails />} />
-        <Route path="/UpdateNews" element={<UpdateNews />} />
-      </Route>
+      <Route
+        path="/Home"
+        element={
+          <AuthenticatedRoute>
+            <Home />
+          </AuthenticatedRoute>
+        }
+      />
+      <Route
+        path="/Comment"
+        element={
+          <AuthenticatedRoute>
+            <Comment />
+          </AuthenticatedRoute>
+        }
+      />
+      <Route
+        path="/AddImage"
+        element={
+          <AuthenticatedRoute>
+            <AddImage />
+          </AuthenticatedRoute>
+        }
+      />
+      <Route
+        path="/CreateNews"
+        element={
+          <AuthenticatedRoute>
+            <CreateNews />
+          </AuthenticatedRoute>
+        }
+      />
+      <Route
+        path="/ViewAllImages"
+        element={
+          <AuthenticatedRoute>
+            <ViewAllImages />
+          </AuthenticatedRoute>
+        }
+      />
+      <Route
+        path="/NewsDetails"
+        element={
+          <AuthenticatedRoute>
+            <NewsDetails />
+          </AuthenticatedRoute>
+        }
+      />
+      <Route
+        path="/UpdateNews"
+        element={
+          <AuthenticatedRoute>
+            <UpdateNews />
+          </AuthenticatedRoute>
+        }
+      />
+
       <Route path="/" element={<Register />} />
       <Route path="/Login" element={<Login />} />
     </Routes>
