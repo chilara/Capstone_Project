@@ -81,7 +81,7 @@ const UpdateNews = () => {
 
   const buttonTag = (
     <Link
-      to="/"
+      to="/Home"
       style={{
         textDecoration: "none",
       }}

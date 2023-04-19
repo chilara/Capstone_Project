@@ -5,7 +5,7 @@ import Navbar from "../Components/Navbar";
 const ViewAllImages = () => {
   const buttonTag = (
     <Link
-      to="/"
+      to="/Home"
       style={{
         textDecoration: "none",
       }}

@@ -37,8 +37,10 @@ const NewsDetailCard = ({ avatar, title, url, author, comments, id }) => {
       <br />
       <p id="title">{title}</p>
       <br />
-      <p id="url">{url}</p>
-      <br />
+      <Link to={url} id="url">
+        View news
+      </Link>
+      <br /> <br />
       <p id="author">{author}</p>
       <br />
       <div>

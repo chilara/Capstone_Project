@@ -3,9 +3,12 @@ import * as yup from "yup";
 import React from "react";
 import Navbar from "../Components/Navbar";
 import { base_url } from "../Utils/Constant";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 const CreateNews = () => {
+  const navigate = useNavigate();
   const initialValues = {
     author: "",
     title: "",
@@ -18,9 +21,20 @@ const CreateNews = () => {
     url: yup.string().required("url is required"),
     avatar: yup.string().required("avatar is required"),
   });
+
+  const buttonTag = (
+    <Link
+      to="/Home"
+      style={{
+        textDecoration: "none",
+      }}
+    >
+      <button className="nav-btn">Home</button>
+    </Link>
+  );
   return (
     <div>
-      <Navbar />
+      <Navbar button={buttonTag} />
       <div>
         <Formik
           initialValues={initialValues}
@@ -39,6 +53,7 @@ const CreateNews = () => {
             try {
               const response = await axios(body);
               console.log(JSON.stringify(response.data));
+              navigate("/Home");
             } catch (error) {
               alert(error);
             }
@@ -79,7 +94,7 @@ const CreateNews = () => {
                 </small>
               </div>
               <div>
-                <label for="">News Title</label>
+                <label for="">Title</label>
                 <input
                   id="newsTitle"
                   type="text"
@@ -99,7 +114,7 @@ const CreateNews = () => {
                 </small>
               </div>
               <div>
-                <label for="">News URL</label>
+                <label for="">Content URL</label>
                 <input
                   id="newsUrl"
                   type="text"

@@ -37,7 +37,7 @@ const NewsDetails = () => {
 
   const buttonTag = (
     <Link
-      to="/"
+      to="/Home"
       style={{
         textDecoration: "none",
       }}
@@ -56,7 +56,13 @@ const NewsDetails = () => {
           style={{
             display: "flex",
             justifyContent: "center",
+            alignItems: "center",
+            height: "470px",
             marginTop: "3%",
+            width: "90%",
+            marginLeft: "5%",
+            // backgroundImage:
+            // "url(https://i.pinimg.com/736x/f1/dd/40/f1dd40d36b17542578727c3d6e863903--backgrounds-wallpapers-blue-backgrounds.jpg)",
           }}
         >
           <NewsDetailCard
