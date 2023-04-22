@@ -73,7 +73,7 @@ const UpdateNews = () => {
 
     try {
       await axios(body);
-      navigate("/");
+      navigate("/Home");
     } catch (error) {
       alert(error);
     }
