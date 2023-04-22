@@ -17,6 +17,7 @@ const UpdateNews = () => {
   const [title, setTitle] = useState("");
   const [url, setUrl] = useState("");
   const [avatar, setAvatar] = useState("");
+  const [updating, setUpdating] = useState(false);
 
   // getting single news detail
   useEffect(() => {
@@ -57,6 +58,7 @@ const UpdateNews = () => {
   // update news
   const onSubmit = async (e) => {
     e.preventDefault();
+
     let body = {
       method: "PUT",
       url: `${base_url}/news/${id}`,
@@ -72,10 +74,13 @@ const UpdateNews = () => {
     };
 
     try {
+      setUpdating(true);
       await axios(body);
       navigate("/Home");
     } catch (error) {
       alert(error);
+    } finally {
+      setUpdating(false);
     }
   };
 
@@ -93,6 +98,13 @@ const UpdateNews = () => {
   return (
     <div>
       <Navbar button={buttonTag} />
+      {updating ? (
+        <p className="loadingStatus" style={{ color: "white" }}>
+          updating..
+        </p>
+      ) : (
+        ""
+      )}
       {loading ? (
         <p className="loadingStatus">Loading...</p>
       ) : (
