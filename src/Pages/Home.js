@@ -31,7 +31,7 @@ const Home = () => {
     try {
       await axios.delete(`${base_url}/news/${id}`);
       const newData = data.filter((item) => item.id != id);
-      console.log("Item successfully deleted.");
+      alert("Item successfully deleted.");
       setData(newData);
     } catch (error) {
       alert(error);

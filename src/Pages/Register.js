@@ -96,7 +96,7 @@ const Register = () => {
               </h5>
               {loading ? (
                 <p className="loadingStatus" style={{ color: "black" }}>
-                  signing in..
+                  signing up..
                 </p>
               ) : (
                 ""
@@ -224,7 +224,7 @@ const Register = () => {
                   color: "black",
                   border: "none",
                   fontWeight: "500",
-                  marginBottom: "22px",
+                  marginBottom: "38px",
                   marginTop: "8px",
                 }}
               />

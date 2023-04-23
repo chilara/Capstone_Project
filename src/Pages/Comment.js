@@ -14,6 +14,7 @@ const Comment = () => {
   const [name, setName] = useState("");
   const [avatar, setAvatar] = useState("");
   const [comment, setComment] = useState("");
+  const [adding, setAdding] = useState(false);
 
   const changeNameHandler = (e) => {
     setName(e.target.value);
@@ -42,17 +43,27 @@ const Comment = () => {
     };
 
     try {
+      setAdding(true);
       e.preventDefault();
       await axios(body);
       navigate(`/NewsDetails?id=${id}`);
     } catch (error) {
       alert(error);
+    } finally {
+      setAdding(false);
     }
   };
 
   return (
     <div>
       <Navbar />
+      {adding ? (
+        <p className="loadingStatus" style={{ color: "white" }}>
+          adding..
+        </p>
+      ) : (
+        ""
+      )}
       <form id="createForm">
         <h3 class="fill">Fill Details</h3>
         <br />

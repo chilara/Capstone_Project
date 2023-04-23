@@ -154,7 +154,7 @@ const Login = () => {
                   color: "black",
                   border: "none",
                   fontWeight: "500",
-                  marginBottom: "22px",
+                  marginBottom: "38px",
                   marginTop: "8px",
                 }}
               />

@@ -1,6 +1,6 @@
 import { Formik } from "formik";
 import * as yup from "yup";
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../Components/Navbar";
 import { base_url } from "../Utils/Constant";
 import { useNavigate } from "react-router-dom";
@@ -9,6 +9,7 @@ import axios from "axios";
 
 const CreateNews = () => {
   const navigate = useNavigate();
+  const [creating, setCreating] = useState(false);
   const initialValues = {
     author: "",
     title: "",
@@ -35,6 +36,13 @@ const CreateNews = () => {
   return (
     <div>
       <Navbar button={buttonTag} />
+      {creating ? (
+        <p className="loadingStatus" style={{ color: "white" }}>
+          creating..
+        </p>
+      ) : (
+        ""
+      )}
       <div>
         <Formik
           initialValues={initialValues}
@@ -51,11 +59,14 @@ const CreateNews = () => {
             };
 
             try {
+              setCreating(true);
               const response = await axios(body);
               console.log(JSON.stringify(response.data));
               navigate("/Home");
             } catch (error) {
               alert(error);
+            } finally {
+              setCreating(false);
             }
           }}
         >
