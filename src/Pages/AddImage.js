@@ -12,6 +12,7 @@ const AddImage = () => {
 
   const navigate = useNavigate();
   const [inputValue, setInputValue] = useState("");
+  const [uploading, setUploading] = useState(false);
 
   const changeHandler = (e) => {
     setInputValue(e.target.value);
@@ -32,11 +33,13 @@ const AddImage = () => {
     };
 
     try {
+      setUploading(true);
       await axios(body);
       navigate(`/NewsDetails?id=${id}`);
     } catch (error) {
       alert(error || error.message);
     } finally {
+      setUploading(false);
       setInputValue("");
     }
   };
@@ -44,6 +47,13 @@ const AddImage = () => {
   return (
     <div>
       <Navbar />
+      {uploading ? (
+        <p className="loadingStatus" style={{ color: "white" }}>
+          uploading..
+        </p>
+      ) : (
+        ""
+      )}
       <form id="createForm">
         <h3 className="fill">Upload Image</h3>
         <br />

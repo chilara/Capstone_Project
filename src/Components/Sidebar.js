@@ -3,12 +3,6 @@ import { Link } from "react-router-dom";
 import landingImg from "../Assets/landingImg.png";
 
 const Sidebar = () => {
-  let token = localStorage.getItem("token");
-
-  const logOut = () => {
-    localStorage.removeItem("token");
-  };
-
   return (
     <div className="sideBar">
       <div
@@ -40,22 +34,6 @@ const Sidebar = () => {
           />
         </div>
       </div>
-      {/* <ul>
-        {!token ? (
-          <>
-            <Link to="/register" style={{ textDecoration: "none" }}>
-              <li>Register</li>
-            </Link>
-            <Link to="/login" style={{ textDecoration: "none" }}>
-              <li>Login</li>
-            </Link>
-          </>
-        ) : (
-          <Link to="/login" style={{ textDecoration: "none" }} onClick={logOut}>
-            <li>Logout</li>
-          </Link>
-        )}
-      </ul> */}
     </div>
   );
 };

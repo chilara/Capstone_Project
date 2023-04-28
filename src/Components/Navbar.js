@@ -1,22 +1,28 @@
 import React from "react";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = ({ button }) => {
+  const navigate = useNavigate();
+  const logOut = () => {
+    localStorage.clear();
+    navigate("/Login", { replace: true });
+  };
   return (
     <div className="navbar">
       <header>
-        <nav>{button}</nav>
-        {/* 
-        <button
-          onClick={() => {
-            localStorage.clear();
-            Navigate("/Login");
+        <nav
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
           }}
-          className="nav-btn-log"
         >
-          Logout
-        </button> */}
+          {button}
 
+          <button className="nav-btn-log" onClick={logOut}>
+            Logout
+          </button>
+        </nav>
         <h1>
           Welcome to Docre Blog
           <br />

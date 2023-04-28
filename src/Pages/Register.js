@@ -44,7 +44,7 @@ const Register = () => {
           try {
             setLoading(true);
             const response = await axios(config);
-            console.log("labe..", JSON.stringify(response.data));
+            console.log(JSON.stringify(response.data));
             localStorage.setItem("token", response.data.token);
             navigate("/Home");
           } catch (error) {

@@ -44,6 +44,7 @@ const Home = () => {
         to="/CreateNews"
         style={{
           textDecoration: "none",
+          marginLeft: "25px",
         }}
       >
         <button className="nav-btn">Create Content</button>

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import Home from "../Pages/Home";
 import Comment from "../Pages/Comment";
@@ -12,18 +12,19 @@ import Register from "../Pages/Register";
 import jwtDecode from "jwt-decode";
 import { AuthenticatedRoute } from "./protectRoute";
 
-let authenticated;
+// let authenticated;
 
 const AllRoutes = () => {
+  const [authenticated, setAuthenticated] = useState(false);
   const navigate = useNavigate();
   useEffect(() => {
     try {
       const token = localStorage.getItem("token");
       if (!token) throw new Error("invalid");
       jwtDecode(token);
-      authenticated = true;
+      setAuthenticated(true);
     } catch (error) {
-      authenticated = false;
+      setAuthenticated(false);
     }
   }, [navigate]);
   return (
