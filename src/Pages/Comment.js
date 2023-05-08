@@ -57,12 +57,10 @@ const Comment = () => {
   return (
     <div>
       <Navbar />
-      {adding ? (
+      {adding && (
         <p className="loadingStatus" style={{ color: "white" }}>
           adding..
         </p>
-      ) : (
-        ""
       )}
       <form id="createForm">
         <h3 class="fill">Fill Details</h3>

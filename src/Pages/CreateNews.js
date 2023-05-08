@@ -36,12 +36,10 @@ const CreateNews = () => {
   return (
     <div>
       <Navbar button={buttonTag} />
-      {creating ? (
+      {creating && (
         <p className="loadingStatus" style={{ color: "white" }}>
           creating..
         </p>
-      ) : (
-        ""
       )}
       <div>
         <Formik

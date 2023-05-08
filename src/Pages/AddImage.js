@@ -47,12 +47,10 @@ const AddImage = () => {
   return (
     <div>
       <Navbar />
-      {uploading ? (
+      {uploading && (
         <p className="loadingStatus" style={{ color: "white" }}>
           uploading..
         </p>
-      ) : (
-        ""
       )}
       <form id="createForm">
         <h3 className="fill">Upload Image</h3>

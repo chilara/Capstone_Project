@@ -98,12 +98,10 @@ const UpdateNews = () => {
   return (
     <div>
       <Navbar button={buttonTag} />
-      {updating ? (
+      {updating && (
         <p className="loadingStatus" style={{ color: "white" }}>
           updating..
         </p>
-      ) : (
-        ""
       )}
       {loading ? (
         <p className="loadingStatus">Loading...</p>

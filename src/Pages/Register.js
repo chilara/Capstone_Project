@@ -94,12 +94,10 @@ const Register = () => {
                 We're so glad you're ready to join Docre. Let's start by
                 creating your account login.
               </h5>
-              {loading ? (
+              {loading && (
                 <p className="loadingStatus" style={{ color: "black" }}>
                   signing up..
                 </p>
-              ) : (
-                ""
               )}
             </div>
             <div>

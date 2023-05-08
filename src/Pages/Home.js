@@ -29,10 +29,13 @@ const Home = () => {
   // deleting a single news detail
   const removeUser = async (id) => {
     try {
-      await axios.delete(`${base_url}/news/${id}`);
-      const newData = data.filter((item) => item.id != id);
-      alert("Item successfully deleted.");
-      setData(newData);
+      const confirmed = window.confirm("Are you sure you want to delete");
+      if (confirmed) {
+        await axios.delete(`${base_url}/news/${id}`);
+        const newData = data.filter((item) => item.id != id);
+        setData(newData);
+        return;
+      }
     } catch (error) {
       alert(error);
     }

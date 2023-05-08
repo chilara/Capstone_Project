@@ -91,12 +91,10 @@ const Login = () => {
               >
                 We are glad to have you back!
               </h5>
-              {loading ? (
+              {loading && (
                 <p className="loadingStatus" style={{ color: "black" }}>
                   signing in..
                 </p>
-              ) : (
-                ""
               )}
             </div>
             <div>
