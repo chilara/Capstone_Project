@@ -10,8 +10,7 @@ const Home = () => {
   const [data, setData] = useState(null);
 
   // getting all news
-  useEffect(() => {
-    const getAllNews = async () => {
+  const getAllNews = async () => {
       try {
         setLoading(true);
         const response = await axios(`${base_url}/news`);
@@ -23,6 +22,7 @@ const Home = () => {
         setLoading(false);
       }
     };
+  useEffect(() => {
     getAllNews();
   }, []);
 
